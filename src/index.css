@@ -1,0 +1,80 @@
+.debit-card,
+.credit-card {
+  border: solid 2px black;
+  width: 50%;
+  padding-top: 5%;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+
+form {
+  width: fit-content;
+  margin-top: -20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+input {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: larger;
+  padding: 15px;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+
+h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: gray;
+  font-size: 1.7rem;
+}
+
+h3 {
+  text-align: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: gray;
+  font-size: 1.2rem;
+}
+
+h4 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: wheat;
+  font-size: 1rem;
+}
+
+h5 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+a {
+  font-size: x-large;
+  margin: 10px;
+  width: fit-content;
+  margin-left: auto;
+  color: white;
+}
+
+nav {
+  margin: 0;
+  background-color: #6d9eeb;
+  padding: 25px;
+  margin-bottom: 2%;
+}
+
+img {
+  margin-top: -2%;
+}
