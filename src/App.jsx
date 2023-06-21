@@ -18,6 +18,8 @@ function App() {
   const [debits, setDebits] = useState(0);
   const [credits, setCredits] = useState(0);
   const [balance, setBalance] = useState(0);
+  const [debsubmissions, setDebSubmissions] = useState([]); // Array to store the debit submissions
+  const [cresubmissions, setCreSubmissions] = useState([]); // Array to store the credit submissions
 
   useEffect(() => {
     async function fetchDebit() {
@@ -71,7 +73,13 @@ function App() {
         <Route
           path="/Debits"
           element={
-            <Debits debits={debits} balance={balance} setDebits={setDebits} />
+            <Debits
+              debits={debits}
+              balance={balance}
+              setDebits={setDebits}
+              debsubmissions={debsubmissions}
+              setDebSubmissions={setDebSubmissions}
+            />
           }
         />
         {/* Route for the Credits component */}
@@ -82,6 +90,8 @@ function App() {
               credits={credits}
               balance={balance}
               setCredits={setCredits}
+              cresubmissions={cresubmissions}
+              setCreSubmissions={setCreSubmissions}
             />
           }
         />

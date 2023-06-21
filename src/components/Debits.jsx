@@ -5,7 +5,6 @@ function Debits(props) {
   const [debAmount, setDebAmount] = useState(0);
   const [debdescription, setDebDescription] = useState("");
   const [debsubmissionDate, setDebSubmissionDate] = useState(null);
-  const [submissions, setSubmissions] = useState([]); // State variable for storing the list of submissions
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ function Debits(props) {
       submissionDate: new Date(),
     }; // Creating a new submission object
 
-    setSubmissions([...submissions, newSubmission]); // Adding the new submission to the list of submissions
+    props.setDebSubmissions([...props.debsubmissions, newSubmission]); // Adding the new submission to the list of submissions
     e.target.reset();
   };
 
@@ -45,7 +44,7 @@ function Debits(props) {
         </form>
         <div>
           <h5>Submissions:</h5>
-          {submissions.map((submission, index) => (
+          {props.debsubmissions.map((submission, index) => (
             <div key={index}>
               <h3>Amount: {submission.amount}</h3>
               <h3>Description: {submission.description}</h3>

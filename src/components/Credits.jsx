@@ -5,7 +5,6 @@ function Credits(props) {
   const [creAmount, setCreAmount] = useState(0);
   const [creDescription, setCreDescription] = useState("");
   const [creSubmissionDate, setCreSubmissionDate] = useState(null);
-  const [submissions, setSubmissions] = useState([]); // State variable for storing the list of submissions
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ function Credits(props) {
       submissionDate: new Date(),
     }; // Creating a new submission object
 
-    setSubmissions([...submissions, newSubmission]); // Adding the new submission to the list of submissions
+    props.setCreSubmissions([...props.cresubmissions, newSubmission]); // Adding the new submission to the list of submissions
     e.target.reset();
   };
 
@@ -45,7 +44,7 @@ function Credits(props) {
         </form>
         <div>
           <h5>Submissions:</h5>
-          {submissions.map((submission, index) => (
+          {props.cresubmissions.map((submission, index) => (
             <div key={index}>
               <h3>Amount: {submission.amount}</h3>
               <h3>Description: {submission.description}</h3>
