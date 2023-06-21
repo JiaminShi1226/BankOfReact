@@ -5,14 +5,14 @@ function Credits(props) {
   const [creAmount, setCreAmount] = useState(0);
   const [creDescription, setCreDescription] = useState("");
   const [creSubmissionDate, setCreSubmissionDate] = useState(null);
-  const [submissions, setSubmissions] = useState([]);
+  const [submissions, setSubmissions] = useState([]); // State variable for storing the list of submissions
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { value: creditsValue } = e.target.credits;
-    props.setCredits((prevCredits) => prevCredits + parseInt(creditsValue));
+    const { value: creditsValue } = e.target.credits; // Getting the value of the credits input field
+    props.setCredits((prevCredits) => prevCredits + parseInt(creditsValue)); // Updating the credits state variable in the parent component
     setCreAmount(parseInt(creditsValue));
-    const { value: descriptionValue } = e.target.description;
+    const { value: descriptionValue } = e.target.description; // Getting the value of the description input field
     setCreDescription(descriptionValue);
     setCreSubmissionDate(new Date());
 
@@ -20,9 +20,9 @@ function Credits(props) {
       amount: parseInt(creditsValue),
       description: descriptionValue,
       submissionDate: new Date(),
-    };
+    }; // Creating a new submission object
 
-    setSubmissions([...submissions, newSubmission]);
+    setSubmissions([...submissions, newSubmission]); // Adding the new submission to the list of submissions
     e.target.reset();
   };
 

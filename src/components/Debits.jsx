@@ -5,14 +5,14 @@ function Debits(props) {
   const [debAmount, setDebAmount] = useState(0);
   const [debdescription, setDebDescription] = useState("");
   const [debsubmissionDate, setDebSubmissionDate] = useState(null);
-  const [submissions, setSubmissions] = useState([]);
+  const [submissions, setSubmissions] = useState([]); // State variable for storing the list of submissions
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { value: debitsValue } = e.target.debits;
-    props.setDebits((prevDebits) => prevDebits + parseInt(debitsValue));
+    const { value: debitsValue } = e.target.debits; // Getting the value of the debits input field
+    props.setDebits((prevDebits) => prevDebits + parseInt(debitsValue)); // Updating the debits state variable in the parent component
     setDebAmount(parseInt(debitsValue));
-    const { value: descriptionValue } = e.target.description;
+    const { value: descriptionValue } = e.target.description; // Getting the value of the description input field
     setDebDescription(descriptionValue);
     setDebSubmissionDate(new Date());
 
@@ -20,9 +20,9 @@ function Debits(props) {
       amount: parseInt(debitsValue),
       description: descriptionValue,
       submissionDate: new Date(),
-    };
+    }; // Creating a new submission object
 
-    setSubmissions([...submissions, newSubmission]);
+    setSubmissions([...submissions, newSubmission]); // Adding the new submission to the list of submissions
     e.target.reset();
   };
 

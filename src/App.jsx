@@ -19,45 +19,44 @@ function App() {
   const [credits, setCredits] = useState(0);
   const [balance, setBalance] = useState(0);
 
-  async function fetchDebit() {
-    try {
-      const URL = `https://bank-of-react-b745wfs0u-ajlapid718.vercel.app/debits`;
-      const response = await axios.get(URL);
-      console.log(response.data);
-      setDebits(response.data);
-    } catch (error) {
-      console.log(error);
-      return 0;
+  useEffect(() => {
+    async function fetchDebit() {
+      try {
+        const URL = `https://bank-of-react-b745wfs0u-ajlapid718.vercel.app/debits`;
+        const response = await axios.get(URL);
+        console.log(response.data);
+        setDebits(response.data);
+      } catch (error) {
+        console.log(error);
+        return 0;
+      }
     }
-  }
-
-  useEffect(() => {
     fetchDebit();
-  }, []);
-  useEffect(() => {
+
+    async function fetchCredit() {
+      try {
+        const URL = `https://bank-of-react-b745wfs0u-ajlapid718.vercel.app/credits`;
+        const response = await axios.get(URL);
+        console.log(response.data);
+        setCredits(response.data);
+      } catch (error) {
+        console.log(error);
+        return 0;
+      }
+    }
     fetchCredit();
   }, []);
 
-  async function fetchCredit() {
-    try {
-      const URL = `https://bank-of-react-b745wfs0u-ajlapid718.vercel.app/credits`;
-      const response = await axios.get(URL);
-      console.log(response.data);
-      setCredits(response.data);
-    } catch (error) {
-      console.log(error);
-      return 0;
-    }
-  }
-
   useEffect(() => {
-    setBalance(credits - debits);
+    setBalance(credits - debits); //Updating the balance whenever debits or credits change
   }, [debits, credits]);
 
   return (
     <Router>
       <Routes>
+        {/* Route for the Home component */}
         <Route path="/" element={<Home balance={balance} />} />
+        {/* Route for the UseProfile component */}
         <Route
           path="/UserProfile"
           element={
@@ -68,12 +67,14 @@ function App() {
             />
           }
         />
+        {/* Route for the Debits component */}
         <Route
           path="/Debits"
           element={
             <Debits debits={debits} balance={balance} setDebits={setDebits} />
           }
         />
+        {/* Route for the Credits component */}
         <Route
           path="/Credits"
           element={
